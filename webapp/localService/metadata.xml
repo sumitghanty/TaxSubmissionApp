@@ -1,0 +1,355 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZTAX_PLANNER_APPROVE_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="TaxHeader" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="personnelNo"/>
+                </Key>
+                <Property Name="personnelNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Personnel Number"/>
+                <Property Name="fiscalYear" Type="Edm.String" sap:unicode="false" sap:label="Fiscal Year"/>
+                <Property Name="name" Type="Edm.String" sap:unicode="false" sap:label="Formatted Name"/>
+                <Property Name="employeeGroup" Type="Edm.String" sap:unicode="false" sap:label="Employee Group"/>
+                <Property Name="genderText" Type="Edm.String" sap:unicode="false" sap:label="Texts for Gender"/>
+                <Property Name="designation" Type="Edm.String" sap:unicode="false" sap:label="Designation"/>
+                <Property Name="dateOfJoin" Type="Edm.String" sap:unicode="false" sap:label="Date of Join"/>
+                <Property Name="address" Type="Edm.String" sap:unicode="false" sap:label="Address"/>
+                <Property Name="city" Type="Edm.String" sap:unicode="false" sap:label="City"/>
+                <Property Name="country" Type="Edm.String" sap:unicode="false" sap:label="Country"/>
+                <Property Name="postal" Type="Edm.String" sap:unicode="false" sap:label="Postal"/>
+                <Property Name="cost_center" Type="Edm.String" sap:unicode="false" sap:label="Cost_center"/>
+                <Property Name="email" Type="Edm.String" sap:unicode="false" sap:label="Email"/>
+                <Property Name="phone" Type="Edm.String" sap:unicode="false" sap:label="Phone"/>
+                <Property Name="actual" Type="Edm.String" sap:unicode="false" sap:label="Actual"/>
+                <Property Name="projection" Type="Edm.String" sap:unicode="false" sap:label="Projection"/>
+                <Property Name="limit" Type="Edm.String" sap:unicode="false" sap:label="Limit"/>
+                <Property Name="int_limit" Type="Edm.String" sap:unicode="false" sap:label="Interest Limit"/>
+                <Property Name="lender" Type="Edm.String" sap:unicode="false" sap:label="Lender Type"/>
+                <Property Name="housing" Type="Edm.String" sap:unicode="false" sap:label="Housing"/>
+                <Property Name="citytyp" Type="Edm.String" sap:unicode="false" sap:label="City type"/>
+            </EntityType>
+            <EntityType Name="Tax80" sap:label="Tax 80" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Pernr"/>
+                </Key>
+                <Property Name="Fiscal" Type="Edm.String" sap:unicode="false" sap:label="Fiscal Year"/>
+                <Property Name="Pernr" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Personnel no."/>
+                <Property Name="Endda" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Begda" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Aedtm" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Changed on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Uname" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Changed by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acopc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Consider Actl Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt01" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn01" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn01" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt02" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn02" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn02" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt03" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn03" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn03" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt04" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn04" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn04" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt05" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn05" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn05" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt06" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn06" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn06" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt07" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn07" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn07" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt08" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn08" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn08" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt09" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn09" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn09" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt10" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn10" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn10" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt11" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn11" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn11" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt12" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn12" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn12" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt13" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn13" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn13" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt14" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn14" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn14" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt15" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn15" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn15" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt16" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn16" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn16" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt17" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn17" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn17" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt18" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn18" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn18" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt19" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn19" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn19" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt20" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn20" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn20" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt21" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn21" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn21" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt22" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn22" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn22" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt23" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn23" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn23" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt25" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn25" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn25" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt26" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn26" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn26" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt27" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn27" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn27" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt28" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn28" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn28" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt29" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn29" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn29" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt30" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn30" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn30" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt31" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn31" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn31" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt32" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn32" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn32" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt33" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn33" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn33" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt34" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn34" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn34" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt35" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn35" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn35" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt36" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn36" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn36" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt37" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn37" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn37" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt38" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn38" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn38" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt39" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn39" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn39" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Txt40" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division Decsription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Pcn40" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Proposed Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Acn40" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Actual Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="app_ind" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Approval indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="remarks" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Remarks" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="TaxHouseProperty" sap:label="Tax for House Property" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="personnelNo"/>
+                </Key>
+                <Property Name="personnelNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="personnelNo"/>
+                <Property Name="fiscalYear" Type="Edm.String" sap:unicode="false" sap:label="fiscalYear"/>
+                <Property Name="startDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="startDate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="endDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="endDate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="sequenceNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="sequenceNo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="changedOn" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="changedOn" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="changedBy" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="changedBy" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="historicalRecordFlag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="historicalRecordFlag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="houseRentedOut" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="houseRentedOut" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="finalLettableValue" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="finalLettableValue" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="deductionSec23" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="deductionSec23" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="deductionInterestSec24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="deductionInterestSec24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="deductionHouseRepairSec24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="deductionHouseRepairSec24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="deductionOthersSec24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="deductionOthersSec24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="businessProfessionProfits" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="businessProfessionProfits" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="longTermCapitalGainNormal" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="longTermCapitalGainNormal" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="longTermCapitalGainSpecial" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="longTermCapitalGainSpecial" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="shortTermCapitalGain" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="shortTermCapitalGain" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="dividendsIncome" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="dividendsIncome" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="incomeFromInterest" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="incomeFromInterest" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="incomeFromOtherSources" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="incomeFromOtherSources" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TDSOtherSource" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="TDSOtherSource" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="currency" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="incomeTypeOtherSource" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="incomeTypeOtherSource" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="loanType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="loanType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="loanSequenceNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="loanSequenceNo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="interestDeductionStartPeriodSec24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="interestDeductionStartPeriodSec24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="interestDeductionEndPeriodSec24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="interestDeductionEndPeriodSec24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="interestLimitDeductionSec24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="interestLimitDeductionSec24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="shortTermCapitalGains" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="shortTermCapitalGains" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TDSAtSource" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="TDSAtSource" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="lendersName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="lendersName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="lendersAddress1" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="lendersAddress1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="lendersAddress2" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="lendersAddress2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="lendersAddress3" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="lendersAddress3" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="identityNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="identityNumber" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="lendersType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="lendersType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="incomeFromDividends" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="incomeFromDividends" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="interestIncome" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="incomeFromInterest" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="eligibleSection80EEA" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="eligibleSection80EEA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="TaxHouseRentAllowance" sap:label="Tax House Rent Allowance" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="personnelNo"/>
+                    <PropertyRef Name="fiscalYear"/>
+                    <PropertyRef Name="endDate"/>
+                    <PropertyRef Name="startDate"/>
+                </Key>
+                <Property Name="personnelNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Personnel no."/>
+                <Property Name="fiscalYear" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Fiscal Year"/>
+                <Property Name="subtype" Type="Edm.String" sap:unicode="false" sap:label="Subtype"/>
+                <Property Name="objectId" Type="Edm.String" sap:unicode="false" sap:label="Object ID"/>
+                <Property Name="lockIndicator" Type="Edm.String" sap:unicode="false" sap:label="Lock indicator"/>
+                <Property Name="endDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="End Date"/>
+                <Property Name="startDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Start Date"/>
+                <Property Name="sequenceNo" Type="Edm.String" sap:unicode="false" sap:label="IT record no."/>
+                <Property Name="cityCategory" Type="Edm.String" sap:unicode="false" sap:label="City Category"/>
+                <Property Name="HRATaxExempt" Type="Edm.String" sap:unicode="false" sap:label="HRA to Be Tax Exempt"/>
+                <Property Name="eligibleAmount" Type="Edm.String" sap:unicode="false" sap:label="Eligible Amount"/>
+                <Property Name="wageType" Type="Edm.String" sap:unicode="false" sap:label="Wage Type"/>
+                <Property Name="rentAmount" Type="Edm.String" sap:unicode="false" sap:label="Rent Amount"/>
+                <Property Name="housingType" Type="Edm.String" sap:unicode="false" sap:label="Housing Type"/>
+                <Property Name="numberOfHelpers" Type="Edm.String" sap:unicode="false" sap:label="Number of Helpers"/>
+                <Property Name="currency" Type="Edm.String" sap:unicode="false" sap:label="Currency"/>
+                <Property Name="fairRentalValueAmount" Type="Edm.String" sap:unicode="false" sap:label="FRV Amount"/>
+                <Property Name="landlordAddress1" Type="Edm.String" sap:unicode="false" sap:label="Landlord's Address"/>
+                <Property Name="landlordAddress2" Type="Edm.String" sap:unicode="false" sap:label="Landlord's Address"/>
+                <Property Name="landlordAddress3" Type="Edm.String" sap:unicode="false" sap:label="Landlord's Address"/>
+                <Property Name="helperCost" Type="Edm.String" sap:unicode="false" sap:label="Helper Cost"/>
+                <Property Name="landlordPanNumber" Type="Edm.String" sap:unicode="false" sap:label="Identity Number"/>
+                <Property Name="decLandlordPanUnavailable" Type="Edm.String" sap:unicode="false" sap:label="Declaration Prov"/>
+                <Property Name="furnitureValue" Type="Edm.String" sap:unicode="false" sap:label="Furniture Value"/>
+                <Property Name="furnitureHiringCharges" Type="Edm.String" sap:unicode="false" sap:label="Furniture Hirng Chrg"/>
+                <Property Name="landlordName" Type="Edm.String" sap:unicode="false" sap:label="Landlord's Name"/>
+                <Property Name="particulars" Type="Edm.String" sap:unicode="false" sap:label="Particulars"/>
+            </EntityType>
+            <EntityType Name="TaxOtherSources" sap:label="Tax for Other Sources" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="personnelNo"/>
+                </Key>
+                <Property Name="personnelNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="personnelNo"/>
+                <Property Name="fiscalYear" Type="Edm.String" sap:unicode="false" sap:label="fiscalYear"/>
+                <Property Name="startDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="startDate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="endDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="endDate" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="sequenceNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="sequenceNo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="changedOn" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="changedOn" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="changedBy" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="changedBy" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="historicalRecordFlag" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="historicalRecordFlag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="houseRentedOut" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="houseRentedOut" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="finalLettableValue" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="finalLettableValue" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="deductionSec23" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="deductionSec23" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="deductionInterestSec24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="deductionInterestSec24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="deductionHouseRepairSec24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="deductionHouseRepairSec24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="deductionOthersSec24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="deductionOthersSec24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="businessProfessionProfits" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="businessProfessionProfits" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="longTermCapitalGainNormal" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="longTermCapitalGainNormal" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="longTermCapitalGainSpecial" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="longTermCapitalGainSpecial" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="shortTermCapitalGain" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="shortTermCapitalGain" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="dividendsIncome" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="dividendsIncome" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="incomeFromInterest" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="incomeFromInterest" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="incomeFromOtherSources" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="incomeFromOtherSources" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TDSOtherSource" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="TDSOtherSource" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="currency" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="incomeTypeOtherSource" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="incomeTypeOtherSource" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="loanType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="loanType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="loanSequenceNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="loanSequenceNo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="interestDeductionStartPeriodSec24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="interestDeductionStartPeriodSec24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="interestDeductionEndPeriodSec24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="interestDeductionEndPeriodSec24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="interestLimitDeductionSec24" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="interestLimitDeductionSec24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="shortTermCapitalGains" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="shortTermCapitalGains" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TDSAtSource" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="TDSAtSource" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="lendersName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="lendersName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="lendersAddress1" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="lendersAddress1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="lendersAddress2" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="lendersAddress2" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="lendersAddress3" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="lendersAddress3" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="identityNumber" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="identityNumber" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="lendersType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="lendersType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="incomeFromDividends" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="incomeFromDividends" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="interestIncome" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="incomeFromInterest" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="eligibleSection80EEA" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="eligibleSection80EEA" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="TaxPreviousEmployment" sap:label="Tax Previous Employment" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="personnelNo"/>
+                </Key>
+                <Property Name="personnelNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Personnel no."/>
+                <Property Name="fiscalYear" Type="Edm.String" sap:unicode="false" sap:label="Fiscal Year"/>
+                <Property Name="endDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="startDate" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="sequenceNo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="IT record no." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="exemptionUnderSection10" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Exemptions u/s 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="professionalTaxPaid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Professional Tax" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="employeeProvidentFund" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Provident Fund" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="incomeTaxDeducted" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Income Tax Deducted" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="medicalExemptionAvailed" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Medical Exemption" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="currency" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LTAExemptionsAvailed" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="LTA Exemptions" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LTACarriedForward" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="LTA Carried Forward" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="leaveEncashmentExemptionAmount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Leave Encshmnt Exmp." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="gratuityExemptionAmount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Gratuity Exemption" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="voluntaryRetirementSchemeAmount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="VRS Exemption" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="educationCessDeducted" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Edu Cess Deducted" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="employerNPSContribution" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Empr. NPS Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="employeeNPSContribution" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Emp. NPS Contr." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="employerNPSBasis" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Empr. NPS basis." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="employeeNPSBasis" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Emp. NPS basis." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="grossSalaryPreviousEmployment" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Salary u/s17(1)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="prerquisiteAmountUnderSection17" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Perquisite u/s 17(2)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="profitInLieuSalaryUnderSection17" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Salary u/s17(3)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="surchargeDeducted" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Surcharge Deducted" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="incomeTaxDeductedIncludeCessSurcharge" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="It. ded inc cess&amp;sur" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="retrenchmentExemptionAmount" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Retrenchment Exem" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="DMS" m:HasStream="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DOKNR"/>
+                </Key>
+                <Property Name="DOKNR" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="emp_details" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="pernr"/>
+                    <PropertyRef Name="fiscal"/>
+                </Key>
+                <Property Name="pernr" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="fiscal" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZTAX_PLANNER_APPROVE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="TaxHeaderSet" EntityType="ZTAX_PLANNER_APPROVE_SRV.TaxHeader" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="Tax80Set" EntityType="ZTAX_PLANNER_APPROVE_SRV.Tax80" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="TaxHousePropertySet" EntityType="ZTAX_PLANNER_APPROVE_SRV.TaxHouseProperty" sap:content-version="1"/>
+                <EntitySet Name="TaxHouseRentAllowanceSet" EntityType="ZTAX_PLANNER_APPROVE_SRV.TaxHouseRentAllowance" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="TaxOtherSourcesSet" EntityType="ZTAX_PLANNER_APPROVE_SRV.TaxOtherSources" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="TaxPreviousEmploymentSet" EntityType="ZTAX_PLANNER_APPROVE_SRV.TaxPreviousEmployment" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="DMSSet" EntityType="ZTAX_PLANNER_APPROVE_SRV.DMS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="emp_detailsSet" EntityType="ZTAX_PLANNER_APPROVE_SRV.emp_details" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZTAX_PLANNER_APPROVE_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZTAX_PLANNER_APPROVE_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

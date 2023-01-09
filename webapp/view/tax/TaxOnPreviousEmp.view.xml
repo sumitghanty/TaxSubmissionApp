@@ -1,0 +1,150 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="com.infocus.app.fi.zTaxApprove.controller.tax.TaxOnPreviousEmp" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Bar>
+		<contentLeft>
+			<Title text="Previous Employment Tax Details" level="H2"/>
+		</contentLeft>
+		<!--<contentRight>
+			<Button id="edit" text="Edit" type="Emphasized" enabled="false" press="handleEditPress"/>
+			<Button id="save" text="Save" type="Accept" visible="false" press="handleSavePress"/>
+			<Button id="cancel" text="Cancel" type="Reject" visible="false" press="handleCancelPress"/>
+		</contentRight>-->
+	</Bar>
+	<l:VerticalLayout class="sapUiContentPadding" width="100%">
+		<f:Form editable="true" ariaLabelledBy="Title1" id="editItemId">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+					emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Leave Encashment Exemption Amount">
+							<f:fields>
+								<Input value="{PreviousEmployement>/0/leaveEncashmentExemptionAmount}" change="onChange"/>
+								<Text text="{PreviousEmployement>/0/currency}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Gratuity Exemption">
+							<f:fields>
+								<Input value="{PreviousEmployement>/0/gratuityExemptionAmount}" change="onChange"/>
+								<Text text="{PreviousEmployement>/0/currency}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="VRS Exemption">
+							<f:fields>
+								<Input value="{PreviousEmployement>/0/voluntaryRetirementSchemeAmount}" change="onChange"/>
+								<Text text="{PreviousEmployement>/0/currency}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Number of LTA Exempt">
+							<f:fields>
+								<Input value="{PreviousEmployement>/0/LTAExemptionsAvailed}" change="onChange"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="LTA Carried Forward">
+							<f:fields>
+								<Input value="{PreviousEmployement>/0/LTACarriedForward}" change="onChange"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Retrenchment Exemption">
+							<f:fields>
+								<Input value="{PreviousEmployement>/0/retrenchmentExemptionAmount}" change="onChange"/>
+								<Text text="{PreviousEmployement>/0/currency}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="true" ariaLabelledBy="Title1" id="displayItemId">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+					emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Leave Encashment Exemption Amount">
+							<f:fields>
+								<Text text="{PreviousEmployement>/0/leaveEncashmentExemptionAmount}"/>
+								<Text text="{PreviousEmployement>/0/currency}">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Gratuity Exemption">
+							<f:fields>
+								<Text text="{PreviousEmployement>/0/gratuityExemptionAmount}"/>
+								<Text text="{PreviousEmployement>/0/currency}">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="VRS Exemption">
+							<f:fields>
+								<Text text="{PreviousEmployement>/0/voluntaryRetirementSchemeAmount}"/>
+								<Text text="{PreviousEmployement>/0/currency}">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Number of LTA Exempt">
+							<f:fields>
+								<Text text="{PreviousEmployement>/0/LTAExemptionsAvailed}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="LTA Carried Forward">
+							<f:fields>
+								<Text text="{PreviousEmployement>/0/LTACarriedForward}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Retrenchment Exemption">
+							<f:fields>
+								<Text text="{PreviousEmployement>/0/retrenchmentExemptionAmount}"/>
+								<Text text="{PreviousEmployement>/0/currency}">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</l:VerticalLayout>
+	<!--<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Accept"/>
+				<Button type="Reject" text="Reject"/>
+			</OverflowToolbar>
+		</footer>-->
+</mvc:View>

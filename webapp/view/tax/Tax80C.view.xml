@@ -1,0 +1,61 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="com.infocus.app.fi.zTaxApprove.controller.tax.Tax80C" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Bar>
+		<contentLeft>
+			<Title text="Section 80C - Total declared in ₹ {globalData>/oTotal80CAmountDeclared} | Max Limit is ₹ {employeeData>/0/limit}" level="H2"/>
+		</contentLeft>
+		<!--<contentRight>
+			<Button id="edit" text="Edit" type="Emphasized" enabled="false" press="handleEditPress"/>
+			<Button id="save" text="Save" type="Accept" visible="false" press="handleSavePress"/>
+			<Button id="cancel" text="Cancel" type="Reject" visible="false" press="handleCancelPress"/>
+		</contentRight>-->
+	</Bar>
+	<l:VerticalLayout class="sapUiContentPadding" width="100%">
+		<List growing="true" growingThreshold="10" noDataText="No data is available, loading.." items="{sec80c>/}" id="editItemId">
+			<infoToolbar>
+				<Toolbar active="true">
+					<Label text="Components" textAlign="Left"/>
+					<ToolbarSpacer/>
+					<Label text="Projection" textAlign="Right"/>
+				</Toolbar>
+			</infoToolbar>
+			<items>
+				<InputListItem class="customtext" label="{sec80c>Itext}">
+					<!--<Input class="inputTextWidth" placeholder="0.00" type="Number" value="{sec80c>AcnAmount}" textAlign="Left" change="onChange"/>-->
+					<Input class="inputTextWidth" type="Number" value="{sec80c>PcnAmount}" textAlign="Left" change="onChange"/>
+				</InputListItem>
+			</items>
+		</List>
+		<List growing="true" growingThreshold="10" noDataText="No data is available, loading.." items="{sec80c>/}" id="displayItemId">
+			<!--<headerToolbar>
+				<OverflowToolbar>
+					<Title text="Total declared in ₹ {globalData>/oTotal80CDeclaredAmount} | Max Limit in ₹ 1,50,000.00" level="H2"/>
+					<ToolbarSpacer/>
+					<Text text="Year Selected {globalData>/selectedYear/yearText}"></Text>
+				</OverflowToolbar>
+			</headerToolbar>-->
+			<infoToolbar>
+				<Toolbar active="ture">
+					<Label text="Components" textAlign="Left"/>
+					<ToolbarSpacer/>
+					<Label text="Proposed Amount" textAlign="Right"/>
+					<ToolbarSpacer/>
+					<Label text="Actual Amount" textAlign="Right"/>
+				</Toolbar>
+			</infoToolbar>
+			<items>
+				<InputListItem class="customtext" label="{sec80c>Itext}">
+					<Text class="inputTextWidth" text="{sec80c>PcnAmount}" textAlign="Left"/>
+					<Text class="inputTextWidth" text="{sec80c>AcnAmount}" textAlign="Left"/>
+				</InputListItem>
+			</items>
+		</List>
+	</l:VerticalLayout>
+	<!--<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Accept"/>
+				<Button type="Reject" text="Reject"/>
+			</OverflowToolbar>
+		</footer>-->
+</mvc:View>

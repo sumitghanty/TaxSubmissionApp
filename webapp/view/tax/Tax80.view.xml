@@ -1,0 +1,105 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="com.infocus.app.fi.zTaxApprove.controller.tax.Tax80">
+	<Bar>
+		<contentLeft>
+			<Title text="Section 80 - Total declared in ₹ {globalData>/oTotal80DeclaredAmount}" level="H2"/>
+		</contentLeft>
+		<!--<contentRight>
+			<Button id="edit" text="Edit" type="Emphasized" enabled="false" press="handleEditPress"/>
+			<Button id="save" text="Save" type="Accept" visible="false" press="handleSavePress"/>
+			<Button id="cancel" text="Cancel" type="Reject" visible="false" press="handleCancelPress"/>
+		</contentRight>-->
+	</Bar>
+	<l:VerticalLayout class="sapUiNoContentPadding sapUiSmallMarginTop" width="100%">
+		<f:SimpleForm editable="true" id="editItemId">
+			<Toolbar active="true" class="toolbarColorProp">
+				<Label text="Components" textAlign="Left" class="toolbarText"/>
+				<ToolbarSpacer/>
+				<Label text="Proposed Amount" textAlign="Right" class="toolbarText"/>
+			</Toolbar>
+			<f:content>
+				<Label class="label" text="{sec80>/0/Txt01}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn01}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt02}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn02}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt03}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn03}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt04}" wrapping="true"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn04}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt05}" wrapping="true"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn05}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt06}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn06}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt07}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn07}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt08}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn08}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt09}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn09}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt10}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn10}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt11}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn11}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt12}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn12}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt13}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn13}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt14}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn14}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt15}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn15}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt16}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn16}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt17}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn17}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt18}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn18}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt19}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn19}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt20}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn20}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt21}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn21}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt22}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn22}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt23}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn23}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt24}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn24}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt25}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn25}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt26}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn26}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt27}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn27}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt28}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn28}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt29}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn29}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt30}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn30}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt31}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn31}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt32}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn32}" change="onChange"/>
+				<Label class="label" text="{sec80>/0/Txt33}"/><Input class="inputTextWidth" type="Number" textAlign="Right" value="{sec80>/0/Pcn33}" change="onChange"/>
+			</f:content>
+		</f:SimpleForm>
+		<f:SimpleForm editable="true" id="displayItemId">
+			<Toolbar active="true" class="toolbarColorProp">
+				<Label text="Components" textAlign="Left" class="toolbarText"/>
+				<ToolbarSpacer/>
+				<Label text="Proposed Amount" textAlign="Right" class="toolbarText"/>
+			</Toolbar>
+			<f:content>
+				<Label class="label" text="{sec80>/0/Txt01}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn01}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt02}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn02}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt03}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn03}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt04}" wrapping="true"/><Text class="inputTextWidth" text="{sec80>/0/Pcn04}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt05}" wrapping="true"/><Text class="inputTextWidth" text="{sec80>/0/Pcn05}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt06}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn06}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt07}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn07}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt08}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn08}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt09}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn09}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt10}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn10}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt11}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn11}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt12}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn12}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt13}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn13}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt14}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn14}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt15}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn15}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt16}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn16}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt17}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn17}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt18}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn18}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt19}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn19}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt20}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn20}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt21}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn21}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt22}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn22}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt23}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn23}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt24}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn24}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt25}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn25}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt26}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn26}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt27}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn27}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt28}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn28}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt29}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn29}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt30}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn30}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt31}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn31}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt32}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn32}" textAlign="Right"/>
+				<Label class="label" text="{sec80>/0/Txt33}"/><Text class="inputTextWidth" text="{sec80>/0/Pcn33}" textAlign="Right"/>
+			</f:content>
+		</f:SimpleForm>
+	</l:VerticalLayout>
+	<!--<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Accept"/>
+				<Button type="Reject" text="Reject"/>
+			</OverflowToolbar>
+		</footer>-->
+</mvc:View>

@@ -1,0 +1,203 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" controllerName="com.infocus.app.fi.zTaxApprove.controller.tax.TaxOnHRA">
+	<Bar>
+		<contentLeft>
+			<Title text="Housing(HRA/CLA/COA)" level="H2"/>
+		</contentLeft>
+		<!--<contentRight>
+			<Button id="edit" text="Edit" type="Emphasized" enabled="false" press="handleEditPress"/>
+			<Button id="save" text="Save" type="Accept" visible="false" press="handleSavePress"/>
+			<Button id="cancel" text="Cancel" type="Reject" visible="false" press="handleCancelPress"/>
+		</contentRight>-->
+	</Bar>
+	<l:VerticalLayout class="sapUiContentPadding" width="100%">
+		<f:Form editable="true" ariaLabelledBy="Title1" id="editItemId">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+					emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="Housing Details">
+					<f:formElements>
+						<f:FormElement label="Housing Type">
+							<f:fields>
+								<Input id="accInput" placeholder="Select Accomodation Type ..." value="{HRA>/0/housingType}" showValueHelp="true" valueHelpOnly="true"
+									valueHelpRequest="handleAccValueHelp" class="sapUiSmallMarginBottom"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="City Category">
+							<f:fields>
+								<Input id="cityInput" placeholder="Select City Type ..." value="{HRA>/0/cityCategory}" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleCityValueHelp"
+									class="sapUiSmallMarginBottom"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Rent Amount">
+							<f:fields>
+								<Input value="{HRA>/0/rentAmount}" type="Number" change="onChange">
+									<layoutData>
+										<l:GridData span="XL2 L1 M3 S4"/>
+									</layoutData>
+								</Input>
+								<Text text="{HRA>/0/currency}"/>
+								<CheckBox text="HRA to be Tax Exempt" selected="{HRA>/0/HRATaxExempt}" textDirection="LTR"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+<!--				<f:FormContainer title="Helper and furniture details">
+					<f:formElements>
+						<f:FormElement label="Number of Helpers">
+							<f:fields>
+								<Input value="{HRA>/0/numberOfHelpers}" type="Number" change="onChange"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Helper Cost">
+							<f:fields>
+								<Input value="{HRA>/0/helperCost}" type="Number" change="onChange"/>
+								<Text text="{HRA>/0/currency}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Total Furniture Value">
+							<f:fields>
+								<Input value="{HRA>/0/furnitureValue}" type="Number" change="onChange"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Furniture Hiring Charges">
+							<f:fields>
+								<Input value="{HRA>/0/furnitureHiringCharges}" type="Number" change="onChange"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>-->
+				<f:FormContainer title="Landlord's Details">
+					<f:formElements>
+						<f:FormElement label="Landlord's Name">
+							<f:fields>
+								<Input value="{HRA>/0/landlordName}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Landlord's Address">
+							<f:fields>
+								<Input value="{HRA>/0/landlordAddress1}"/>
+								<Input value="{HRA>/0/landlordAddress2}"/>
+								<Input value="{HRA>/0/landlordAddress3}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="PAN of Landlord">
+							<f:fields>
+								<Input value="{HRA>/0/landlordPanNumber}" type="Number" change="onChange"/>
+								<CheckBox text="Declaration Provided by Landlord">
+									<layoutData>
+										<l:GridData span="XL2 L3 M5 S4"/>
+									</layoutData>
+								</CheckBox>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="Additional Details">
+					<f:formElements>
+						<f:FormElement label="Particulars">
+							<f:fields>
+								<Input value="{HRA>/0/particulars}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="true" ariaLabelledBy="Title1" id="displayItemId">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+					emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="Housing Details">
+					<f:formElements>
+						<f:FormElement label="Housing Type">
+							<f:fields>
+								<Text text="{HRA>/0/housingType}"></Text>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="City Category">
+							<f:fields>
+								<Text text="{HRA>/0/cityCategory}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Rent Amount">
+							<f:fields>
+								<Text text="{HRA>/0/rentAmount}">
+									<layoutData>
+										<l:GridData span="XL2 L1 M3 S4"/>
+									</layoutData>
+								</Text>
+								<Text text="{HRA>/0/currency}"/>
+								<CheckBox text="HRA to be Tax Exempt" id="HRAExempt" selected="{HRA>/0/HRATaxExempt}" textDirection="LTR" enabled="false"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+<!--				<f:FormContainer title="Helper and furniture details">
+					<f:formElements>
+						<f:FormElement label="Number of Helpers">
+							<f:fields>
+								<Text text="{HRA>/0/numberOfHelpers}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Helper Cost">
+							<f:fields>
+								<Text text="{HRA>/0/helperCost}"/>
+								<Text text="{HRA>/0/currency}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Total Furniture Value">
+							<f:fields>
+								<Text text="{HRA>/0/furnitureValue}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Furniture Hiring Charges">
+							<f:fields>
+								<Text text="{HRA>/0/furnitureHiringCharges}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>-->
+				<f:FormContainer title="Landlord's Details">
+					<f:formElements>
+						<f:FormElement label="Landlord's Name">
+							<f:fields>
+								<Text text="{HRA>/0/landlordName}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Landlord's Address">
+							<f:fields>
+								<Text text="{HRA>/0/landlordAddress1}"/>
+								<Text text="{HRA>/0/landlordAddress2}"/>
+								<Text text="{HRA>/0/landlordAddress3}"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="PAN of Landlord">
+							<f:fields>
+								<Text text="{HRA>/0/landlordPanNumber}"/>
+								<CheckBox text="Declaration Provided by Landlord" enabled="false">
+									<layoutData>
+										<l:GridData span="XL2 L3 M5 S4"/>
+									</layoutData>
+								</CheckBox>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="Additional Details">
+					<f:formElements>
+						<f:FormElement label="Particulars">
+							<f:fields>
+								<Text text="{HRA>/0/particulars}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</l:VerticalLayout>
+</mvc:View>

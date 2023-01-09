@@ -1,0 +1,67 @@
+<mvc:View controllerName="com.infocus.app.fi.zTaxApprove.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="{name}" number="{personnelNo}"></ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter text="Section 80C" key="info">
+						<content>
+							<mvc:XMLView viewName="com.infocus.app.fi.zTaxApprove.view.tax.Tax80C" visible="true"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Section 80" key="attachments">
+						<content>
+							<mvc:XMLView viewName="com.infocus.app.fi.zTaxApprove.view.tax.Tax80" visible="true"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="House Rent Allowance" key="notes">
+						<content>
+							<mvc:XMLView viewName="com.infocus.app.fi.zTaxApprove.view.tax.TaxOnHRA" visible="true"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Previous Employment Tax Details" key="people">
+						<content>
+							<mvc:XMLView viewName="com.infocus.app.fi.zTaxApprove.view.tax.TaxOnPreviousEmp" visible="true"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Income from House Property" key="people">
+						<content>
+							<mvc:XMLView viewName="com.infocus.app.fi.zTaxApprove.view.tax.TaxOnProperty" visible="true"/>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter text="Income from Other Sources" key="people">
+						<content>
+							<mvc:XMLView viewName="com.infocus.app.fi.zTaxApprove.view.tax.OtherSource" visible="true"/>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<!--<semantic:sendEmailAction>
+			<semantic:SendEmailAction
+				id="shareEmail"
+				press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction
+				id="shareInJam"
+				visible="{FLP>/isShareInJamActive}"
+				press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton
+				id="shareTile"
+				title="{detailView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>-->
+		<semantic:positiveAction>
+			<semantic:PositiveAction text="Approve" press="onApprove"/>
+		</semantic:positiveAction>
+		<semantic:negativeAction>
+			<semantic:NegativeAction text="Reject" press="onReject"/>
+		</semantic:negativeAction>
+	</semantic:DetailPage>
+</mvc:View>

@@ -1,0 +1,240 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="com.infocus.app.fi.zTaxApprove.controller.tax.OtherSource" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Bar>
+		<contentLeft>
+			<Title text="Income From Other Sources" level="H2"/>
+		</contentLeft>
+		<!--<contentRight>
+			<Button id="edit" text="Edit" type="Emphasized" enabled="false" press="handleEditPress"/>
+			<Button id="save" text="Save" type="Accept" visible="false" press="handleSavePress"/>
+			<Button id="cancel" text="Cancel" type="Reject" visible="false" press="handleCancelPress"/>
+		</contentRight>-->
+	</Bar>
+	<l:VerticalLayout class="sapUiContentPadding" width="100%">
+		<f:Form editable="true" ariaLabelledBy="Title1" id="editItemId">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+					emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Business profits">
+							<f:fields>
+								<Input value="{OtherSources>/0/businessProfessionProfits}" type="Number" change="onChange"/>
+								<Text text="INR"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Long Term Capital Gains">
+							<f:fields>
+								<Input value="{OtherSources>/0/longTermCapitalGainNormal}" type="Number" change="onChange"/>
+								<Text text="INR"/>
+								<Text text="Normal Rate"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Long Term Capital Gains">
+							<f:fields>
+								<Input value="{OtherSources>/0/longTermCapitalGainSpecial}" type="Number" change="onChange"/>
+								<Text text="INR"/>
+								<Text text="Special Rate"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Short Term Capital Gains">
+							<f:fields>
+								<Input value="{OtherSources>/0/shortTermCapitalGain}" type="Number" change="onChange"/>
+								<Text text="INR"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Short Term Capital Gains">
+							<f:fields>
+								<Input value="{OtherSources>/0/shortTermCapitalGains}" type="Number" change="onChange"/>
+								<Text text="INR"/>
+								<Text text="Listed Securities"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Income from Dividend">
+							<f:fields>
+								<Input value="{OtherSources>/0/incomeFromDividends}" type="Number" change="onChange"/>
+								<Text text="INR"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Income from Interest">
+							<f:fields>
+								<Input value="{OtherSources>/0/incomeFromInterest}" type="Number" change="onChange"/>
+								<Text text="INR"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Other Income(Unspecified)">
+							<f:fields>
+								<Input value="{OtherSources>/0/incomeFromOtherSources}" type="Number" change="onChange"/>
+								<Text text="INR"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="TDS on Other Income">
+							<f:fields>
+								<Input value="{OtherSources>/0/TDSOtherSource}" type="Number" change="onChange"/>
+								<Text text="INR"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="true" ariaLabelledBy="Title1" id="displayItemId">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+					emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Business profits">
+							<f:fields>
+								<Text text="{OtherSources>/0/businessProfessionProfits}"/>
+								<Text text="INR">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Long Term Capital Gains">
+							<f:fields>
+								<Text text="{OtherSources>/0/longTermCapitalGainNormal}"/>
+								<Text text="INR">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+								<Text text="Normal Rate">
+									<layoutData>
+										<l:GridData span="XL2 L2 M3 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Long Term Capital Gains">
+							<f:fields>
+								<Text text="{OtherSources>/0/longTermCapitalGainSpecial}"/>
+								<Text text="INR">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+								<Text text="Special Rate">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Short Term Capital Gains">
+							<f:fields>
+								<Text text="{OtherSources>/0/shortTermCapitalGain}"/>
+								<Text text="INR">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Short Term Capital Gains">
+							<f:fields>
+								<Text text="{OtherSources>/0/shortTermCapitalGains}"/>
+								<Text text="INR">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+								<Text text="Listed Securities">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Income from Dividend">
+							<f:fields>
+								<Text text="{OtherSources>/0/incomeFromDividends}"/>
+								<Text text="INR">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Income from Interest">
+							<f:fields>
+								<Text text="{OtherSources>/0/incomeFromInterest}"/>
+								<Text text="INR">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Other Income(Unspecified)">
+							<f:fields>
+								<Text text="{OtherSources>/0/incomeFromOtherSources}"/>
+								<Text text="INR">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="TDS on Other Income">
+							<f:fields>
+								<Text text="{OtherSources>/0/TDSOtherSource}"/>
+								<Text text="INR">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</l:VerticalLayout>
+	<!--<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Accept"/>
+				<Button type="Reject" text="Reject"/>
+			</OverflowToolbar>
+		</footer>-->
+</mvc:View>

@@ -1,0 +1,262 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="com.infocus.app.fi.zTaxApprove.controller.tax.TaxOnProperty" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Bar>
+		<contentLeft>
+			<Title text="Income from House Property" level="H2"/>
+		</contentLeft>
+		<!--<contentRight>
+			<Button id="edit" text="Edit" type="Emphasized" enabled="false" press="handleEditPress"/>
+			<Button id="save" text="Save" type="Accept" visible="false" press="handleSavePress"/>
+			<Button id="cancel" text="Cancel" type="Reject" visible="false" press="handleCancelPress"/>
+		</contentRight>-->
+	</Bar>
+	<l:VerticalLayout class="sapUiContentPadding" width="100%">
+		<f:Form editable="true" ariaLabelledBy="Title1" id="editItemId">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+					emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="Property Type">
+					<f:formElements>
+						<f:FormElement label="">
+							<f:fields>
+								<RadioButtonGroup>
+									<RadioButton text="Self-occupied/Deemed self-occupied House Property" selected="true"/>
+									<!--<RadioButton text="Partly Let out House Property"/>
+									<RadioButton text="Wholly Let out House Property"/>-->
+								</RadioButtonGroup>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="Deduction Details">
+					<f:formElements>
+						<f:FormElement label="Ded-Interest u/s 24">
+							<f:fields>
+								<Input value="{HouseProperty>/0/deductionInterestSec24}" type="Number" change="onChange"/>
+								<Text text="INR"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Ded-Interest u/s 24">
+							<f:fields>
+								<CheckBox id="__box10" text="Eligible for 80EEA"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="Company Housing Loan Details">
+					<!--					<f:formElements>
+						<f:FormElement label="Loan type">
+							<f:fields>
+								<Input value="{HouseProperty>/0/loanType}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Loan Sequence Number">
+							<f:fields>
+								<Input value="{HouseProperty>/0/loanSequenceNo}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Dedn. Int Start A/C Month">
+							<f:fields>
+								<Input value="{HouseProperty>/0/interestDeductionStartPeriodSec24}" type="Number" change="onChange"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Dedn. Int End A/C Month">
+							<f:fields>
+								<Input value="{HouseProperty>/0/interestDeductionEndPeriodSec24}" type="Number" change="onChange"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>-->
+					<f:formElements>
+						<f:FormElement label="Int. Limit">
+							<f:fields>
+								<Text text="{employeeData>/0/int_limit}"/>
+								<Text text="INR">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="">
+					<f:formElements>
+						<f:FormElement label="Lender's Name">
+							<f:fields>
+								<Input value="{HouseProperty>/0/lendersName}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Lender's Address">
+							<f:fields>
+								<Input value="{HouseProperty>/0/lendersAddress1}"/>
+								<Input value="{HouseProperty>/0/lendersAddress2}"/>
+								<Input value="{HouseProperty>/0/lendersAddress3}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="PAN of Lender">
+							<f:fields>
+								<Input value="{HouseProperty>/0/identityNumber}" type="Number" change="onChange"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Lender's Type">
+							<f:fields>
+								<Input id="lenderTypeInput" placeholder="Select Lenders Type ..." showValueHelp="true" valueHelpOnly="true"
+									valueHelpRequest="handleLendersTypeValueHelp" class="sapUiSmallMarginBottom" required="true"/>  
+								<!--	<Input value="{HouseProperty>/0/lendersType}"/>-->
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<!--							<f:formElements>
+								<f:FormElement label="PAN of Lender">
+									<f:fields>
+										<Input value=""/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>-->
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+		<f:Form editable="true" ariaLabelledBy="Title1" id="displayItemId">
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4"
+					emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer title="Property Type">
+					<f:formElements>
+						<f:FormElement label="">
+							<f:fields>
+								<RadioButtonGroup>
+									<RadioButton text="Self-occupied/Deemed self-occupied House Property" selected="true" enabled="false"/>
+									<!--<RadioButton text="Partly Let out House Property" enabled="false"/>
+									<RadioButton text="Wholly Let out House Property" enabled="false"/>-->
+								</RadioButtonGroup>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="Deduction Details">
+					<f:formElements>
+						<f:FormElement label="Ded-Interest u/s 24">
+							<f:fields>
+								<Text text="{HouseProperty>/0/deductionInterestSec24}"/>
+								<Text text="INR">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Ded-Interest u/s 24">
+							<f:fields>
+								<CheckBox text="Eligible for 80EEA" enabled="false"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="Company Housing Loan Details">
+					<!--					<f:formElements>
+						<f:FormElement label="Loan type">
+							<f:fields>
+								<Text text="{HouseProperty>/0/loanType}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Loan Sequence Number">
+							<f:fields>
+								<Text text="{HouseProperty>/0/loanSequenceNo}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Dedn. Int Start A/C Month">
+							<f:fields>
+								<Text text="{HouseProperty>/0/interestDeductionStartPeriodSec24}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Dedn. Int End A/C Month">
+							<f:fields>
+								<Text text="{HouseProperty>/0/interestDeductionEndPeriodSec24}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>-->
+					<f:formElements>
+						<f:FormElement label="Int. Limit">
+							<f:fields>
+								<Text text="{employeeData>/0/int_limit}"/>
+								<Text text="INR">
+									<layoutData>
+										<l:GridData span="XL2 L4 M5 S4"/>
+									</layoutData>
+								</Text>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+				<f:FormContainer title="">
+					<f:formElements>
+						<f:FormElement label="Lender's Name">
+							<f:fields>
+								<Text text="{HouseProperty>/0/lendersName}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Lender's Address">
+							<f:fields>
+								<Text text="{HouseProperty>/0/lendersAddress1}"/>
+								<Text text="{HouseProperty>/0/lendersAddress2}"/>
+								<Text text="{HouseProperty>/0/lendersAddress3}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="PAN of Lender">
+							<f:fields>
+								<Text text="{HouseProperty>/0/identityNumber}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<f:formElements>
+						<f:FormElement label="Lender's Type">
+							<f:fields>
+								<Text text="{HouseProperty>/0/lendersType}"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+					<!--							<f:formElements>
+								<f:FormElement label="PAN of Lender">
+									<f:fields>
+										<Input value=""/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>-->
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</l:VerticalLayout>
+	<!--<footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Accept"/>
+				<Button type="Reject" text="Reject"/>
+			</OverflowToolbar>
+		</footer>-->
+</mvc:View>
