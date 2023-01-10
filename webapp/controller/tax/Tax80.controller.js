@@ -37,8 +37,8 @@ sap.ui.define([
 			});
 		},
 		_initialDisplay: function() {
-			this.byId("editItemId").setVisible(false);
-			this.byId("displayItemId").setVisible(true);
+			//this.byId("editItemId").setVisible(false);
+			//this.byId("displayItemId").setVisible(true);
 		},
 		handleEditPress: function() {
 			this._toggleButtonsAndView(true);
@@ -55,7 +55,7 @@ sap.ui.define([
 			oView.byId("edit").setVisible(!bEdit);
 			oView.byId("save").setVisible(bEdit);
 			oView.byId("cancel").setVisible(bEdit);
-			this.byId("editItemId").setVisible(bEdit);
+			//this.byId("editItemId").setVisible(bEdit);
 			this.byId("displayItemId").setVisible(!bEdit);
 		},
 		_onRead80DataSet: function() {
@@ -117,7 +117,7 @@ sap.ui.define([
 					this.byId('cancel').setVisible(false);
 				}
 				
-				this.byId("editItemId").setVisible(false);
+				//this.byId("editItemId").setVisible(false);
 				this.byId("displayItemId").setVisible(true);
 			}.bind(this));
 		},

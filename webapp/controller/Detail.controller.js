@@ -311,7 +311,7 @@ sap.ui.define([
 						type: ButtonType.Emphasized,
 						text: "Submit",
 						press: function() {
-							that.onSubmitApproveReject(oEvent, "","X");
+							that.onSubmitApproveReject(oEvent, "", "X");
 							this.oApproveDialog.close();
 						}.bind(this)
 					}),
@@ -354,7 +354,7 @@ sap.ui.define([
 						enabled: false,
 						press: function() {
 							var sText = Core.byId("submissionNote").getValue();
-							that.onSubmitApproveReject(oldEvent, sText,"");
+							that.onSubmitApproveReject(oldEvent, sText, "");
 							this.oSubmitDialog.close();
 						}.bind(this)
 					}),
@@ -408,7 +408,8 @@ sap.ui.define([
 			this.oRejectDialog.open();
 		},
 
-		onSubmitApproveReject: function(oEvent, sText,flagX) {
+		onSubmitApproveReject: function(oEvent, sText, flagX) {
+			var that = this;
 			this.getModel().metadataLoaded().then(function() {
 				var that = this;
 				var oUrl = "/TaxHeaderSet";
@@ -423,6 +424,7 @@ sap.ui.define([
 				this.getModel().create(oUrl, postData, {
 					success: function(response) {
 						//MessageBox.information("The response is saved");
+						that.getOwnerComponent().oListSelector;
 						MessageToast.show("The response is saved");
 					},
 					error: function(error) {

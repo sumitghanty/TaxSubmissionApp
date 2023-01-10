@@ -11,51 +11,31 @@
 		</contentRight>-->
 	</Bar>
 	<l:VerticalLayout class="sapUiContentPadding" width="100%">
-		<List growing="true" growingThreshold="10" noDataText="No data is available, loading.." items="{sec80c>/}" id="editItemId">
-			<infoToolbar>
-				<Toolbar active="true">
-					<Label text="Components" textAlign="Left"/>
-					<ToolbarSpacer/>
-					<Label text="Projection" textAlign="Right"/>
-				</Toolbar>
-			</infoToolbar>
+		<Table id="displayItemId" inset="false" items="{sec80c>/}">
+			<columns>
+				<Column width="40em">
+					<Text text="Components"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="Proposed Amount"/>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<Text text="Actual Amount"/>
+				</Column>
+				<Column hAlign="End">
+					<Text text=""/>
+				</Column>
+			</columns>
 			<items>
-				<InputListItem class="customtext" label="{sec80c>Itext}">
-					<!--<Input class="inputTextWidth" placeholder="0.00" type="Number" value="{sec80c>AcnAmount}" textAlign="Left" change="onChange"/>-->
-					<Input class="inputTextWidth" type="Number" value="{sec80c>PcnAmount}" textAlign="Left" change="onChange"/>
-				</InputListItem>
+				<ColumnListItem vAlign="Middle">
+					<cells>
+						<ObjectIdentifier title="{sec80c>Itext}"/>
+						<Text text="{sec80c>PcnAmount}"/>
+						<Text text="{sec80c>AcnAmount}"/>
+						<Button icon="sap-icon://download" text="Download" press="downloadSupportingDoc" type="Accept"></Button>
+					</cells>
+				</ColumnListItem>
 			</items>
-		</List>
-		<List growing="true" growingThreshold="10" noDataText="No data is available, loading.." items="{sec80c>/}" id="displayItemId">
-			<!--<headerToolbar>
-				<OverflowToolbar>
-					<Title text="Total declared in ₹ {globalData>/oTotal80CDeclaredAmount} | Max Limit in ₹ 1,50,000.00" level="H2"/>
-					<ToolbarSpacer/>
-					<Text text="Year Selected {globalData>/selectedYear/yearText}"></Text>
-				</OverflowToolbar>
-			</headerToolbar>-->
-			<infoToolbar>
-				<Toolbar active="ture">
-					<Label text="Components" textAlign="Left"/>
-					<ToolbarSpacer/>
-					<Label text="Proposed Amount" textAlign="Right"/>
-					<ToolbarSpacer/>
-					<Label text="Actual Amount" textAlign="Right"/>
-				</Toolbar>
-			</infoToolbar>
-			<items>
-				<InputListItem class="customtext" label="{sec80c>Itext}">
-					<Text class="inputTextWidth" text="{sec80c>PcnAmount}" textAlign="Left"/>
-					<Text class="inputTextWidth" text="{sec80c>AcnAmount}" textAlign="Left"/>
-				</InputListItem>
-			</items>
-		</List>
+		</Table>
 	</l:VerticalLayout>
-	<!--<footer>
-			<OverflowToolbar>
-				<ToolbarSpacer/>
-				<Button type="Accept" text="Accept"/>
-				<Button type="Reject" text="Reject"/>
-			</OverflowToolbar>
-		</footer>-->
 </mvc:View>

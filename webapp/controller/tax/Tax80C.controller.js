@@ -26,6 +26,9 @@ sap.ui.define([
 		onAfterRenderer: function() {
 
 		},
+		downloadSupportingDoc:function(){
+			
+		},
 		_onRouteMatched: function(oEvent) {
 			var oArgs, oView;
 			oArgs = oEvent.getParameter("arguments");
@@ -45,7 +48,7 @@ sap.ui.define([
 			});
 		},
 		_initialDisplay: function() {
-			this.byId("editItemId").setVisible(false);
+			//this.byId("editItemId").setVisible(false);
 			this.byId("displayItemId").setVisible(true);
 		},
 		handleEditPress: function() {
@@ -81,7 +84,7 @@ sap.ui.define([
 			oView.byId("cancel").setVisible(bEdit);
 			// Set the right form type
 			//this._showFormFragment(bEdit ? "ChangeTax80C" : "DisplayTax80C");
-			this.byId("editItemId").setVisible(bEdit);
+			//this.byId("editItemId").setVisible(bEdit);
 			this.byId("displayItemId").setVisible(!bEdit);
 		},
 
@@ -142,7 +145,7 @@ sap.ui.define([
 					this.byId('cancel').setVisible(false);
 				}
 				
-				this.byId("editItemId").setVisible(false);
+				//this.byId("editItemId").setVisible(false);
 				this.byId("displayItemId").setVisible(true);
 			}.bind(this));
 		},
