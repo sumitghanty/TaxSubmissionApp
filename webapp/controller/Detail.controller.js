@@ -14,8 +14,9 @@ sap.ui.define([
 	"sap/m/TextArea",
 	"sap/ui/core/Core",
 	"sap/m/MessageToast",
+	"sap/m/GroupHeaderListItem"
 ], function(BaseController, JSONModel, formatter, Filter, FilterOperator, MessageBox, Dialog, Button, mobileLibrary, Label, Text,
-	TextArea, Core, MessageToast) {
+	TextArea, Core, MessageToast, GroupHeaderListItem) {
 	"use strict";
 	var ButtonType = mobileLibrary.ButtonType;
 
@@ -103,22 +104,58 @@ sap.ui.define([
 				oJsonGlobalData.selectedPernr = sObjectId;
 				this.getOwnerComponent().getModel("globalData").setData(oJsonGlobalData);
 				this._bindView("/" + sObjectPath);
-				this._getTaxSection80CData(sObjectId);
-				this._getTaxSection80Data(sObjectId);
-				this._getTaxHousePropertyData(sObjectId);
-				this._getTaxHouseRentAllowanceData(sObjectId);
-				this._getTaxOtherSourcesData(sObjectId);
-				this._getTaxPreviousEmploymentData(sObjectId);
+				this._onReadYearSet(oJsonGlobalData.userId);
+
 			}.bind(this));
 		},
+		onSelectedPernrSet: function(oUserId) {
+			var oJsonGlobalModel = this.getOwnerComponent().getModel("globalData");
+			var oJsonGlobalData = oJsonGlobalModel.getData();
+			oJsonGlobalData.selectedPernr = oUserId;
+			oJsonGlobalModel.setData(oJsonGlobalData);
+		},
+		_getAllDataOfEntities: function(sObjectId, sObjectFiscalYear) {
+			this._getTaxSection80CData(sObjectId, sObjectFiscalYear);
+			this._getTaxSection80Data(sObjectId, sObjectFiscalYear);
+			this._getTaxHousePropertyData(sObjectId, sObjectFiscalYear);
+			this._getTaxHouseRentAllowanceData(sObjectId, sObjectFiscalYear);
+			this._getTaxOtherSourcesData(sObjectId, sObjectFiscalYear);
+			this._getTaxPreviousEmploymentData(sObjectId, sObjectFiscalYear);
+		},
+		_onReadYearSet: function(userId) {
+			var that = this;
+			var oModel = this.getOwnerComponent().getModel();
+			var oUrl = "/YEARSet";
+			var oPernerFilter = new sap.ui.model.Filter("Pernr", sap.ui.model.FilterOperator.EQ, userId);
+			oModel.read(oUrl, {
+				filters: [oPernerFilter],
+				success: function(response) {
+					var data = response.results;
+					var oJsonYearSetModel = that.getOwnerComponent().getModel("yearSet");
+					oJsonYearSetModel.setData(data);
+					that.onDefaultYearSelect(data[0].Fiscal);
+					//that._getAllDataOfEntities(userId);
+				},
+				error: function(error) {}
+			});
+			oModel.attachRequestCompleted(function() {
 
-		_getTaxHousePropertyData: function(perId) {
+			}.bind(this));
+		},
+		onDefaultYearSelect: function(oData) {
+			var oJsonGlobalModel = this.getOwnerComponent().getModel("globalData");
+			var oJsonGlobalData = oJsonGlobalModel.getData();
+			oJsonGlobalData.selectedYear = oJsonGlobalData.selectedYear === undefined ? "" : oJsonGlobalData.selectedYear;
+			oJsonGlobalData.selectedYear = oData;
+			oJsonGlobalModel.setData(oJsonGlobalData);
+		},
+		_getTaxHousePropertyData: function(perId, fiscalYear) {
 			this.getModel().metadataLoaded().then(function() {
 				var that = this;
 				var oUrl = "/TaxHousePropertySet";
-				var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
+				//var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
 				var oPernerFilter = new Filter("personnelNo", sap.ui.model.FilterOperator.EQ, perId);
-				var oFiscalYearFilter = new Filter("fiscalYear", sap.ui.model.FilterOperator.EQ, oJsonGlobalData.selectedYear);
+				var oFiscalYearFilter = new Filter("fiscalYear", sap.ui.model.FilterOperator.EQ, fiscalYear);
 				this.getModel().read(oUrl, {
 					filters: [oPernerFilter, oFiscalYearFilter],
 					success: function(response) {
@@ -131,13 +168,13 @@ sap.ui.define([
 
 			}.bind(this));
 		},
-		_getTaxHouseRentAllowanceData: function(perId) {
+		_getTaxHouseRentAllowanceData: function(perId, fiscalYear) {
 			this.getModel().metadataLoaded().then(function() {
 				var that = this;
 				var oUrl = "/TaxHouseRentAllowanceSet";
-				var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
+				//var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
 				var oPernerFilter = new Filter("personnelNo", sap.ui.model.FilterOperator.EQ, perId);
-				var oFiscalYearFilter = new Filter("fiscalYear", sap.ui.model.FilterOperator.EQ, oJsonGlobalData.selectedYear);
+				var oFiscalYearFilter = new Filter("fiscalYear", sap.ui.model.FilterOperator.EQ, fiscalYear);
 				this.getModel().read(oUrl, {
 					filters: [oPernerFilter, oFiscalYearFilter],
 					success: function(response) {
@@ -150,13 +187,13 @@ sap.ui.define([
 
 			}.bind(this));
 		},
-		_getTaxOtherSourcesData: function(perId) {
+		_getTaxOtherSourcesData: function(perId, fiscalYear) {
 			this.getModel().metadataLoaded().then(function() {
 				var that = this;
 				var oUrl = "/TaxOtherSourcesSet";
-				var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
+				//var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
 				var oPernerFilter = new Filter("personnelNo", sap.ui.model.FilterOperator.EQ, perId);
-				var oFiscalYearFilter = new Filter("fiscalYear", sap.ui.model.FilterOperator.EQ, oJsonGlobalData.selectedYear);
+				var oFiscalYearFilter = new Filter("fiscalYear", sap.ui.model.FilterOperator.EQ, fiscalYear);
 				this.getModel().read(oUrl, {
 					filters: [oPernerFilter, oFiscalYearFilter],
 					success: function(response) {
@@ -169,13 +206,13 @@ sap.ui.define([
 
 			}.bind(this));
 		},
-		_getTaxPreviousEmploymentData: function(perId) {
+		_getTaxPreviousEmploymentData: function(perId, fiscalYear) {
 			this.getModel().metadataLoaded().then(function() {
 				var that = this;
 				var oUrl = "/TaxPreviousEmploymentSet";
-				var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
+				//var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
 				var oPernerFilter = new Filter("personnelNo", sap.ui.model.FilterOperator.EQ, perId);
-				var oFiscalYearFilter = new Filter("fiscalYear", sap.ui.model.FilterOperator.EQ, oJsonGlobalData.selectedYear);
+				var oFiscalYearFilter = new Filter("fiscalYear", sap.ui.model.FilterOperator.EQ, fiscalYear);
 				this.getModel().read(oUrl, {
 					filters: [oPernerFilter, oFiscalYearFilter],
 					success: function(response) {
@@ -188,13 +225,13 @@ sap.ui.define([
 
 			}.bind(this));
 		},
-		_getTaxSection80Data: function(perId) {
+		_getTaxSection80Data: function(perId, fiscalYear) {
 			this.getModel().metadataLoaded().then(function() {
 				var that = this;
 				var oUrl = "/Tax80Set";
-				var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
+				//var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
 				var oPernerFilter = new Filter("Pernr", sap.ui.model.FilterOperator.EQ, perId);
-				var oFiscalYearFilter = new Filter("Fiscal", sap.ui.model.FilterOperator.EQ, oJsonGlobalData.selectedYear);
+				var oFiscalYearFilter = new Filter("Fiscal", sap.ui.model.FilterOperator.EQ, fiscalYear);
 				this.getModel().read(oUrl, {
 					filters: [oPernerFilter, oFiscalYearFilter],
 					success: function(response) {
@@ -207,19 +244,22 @@ sap.ui.define([
 
 			}.bind(this));
 		},
-		_getTaxSection80CData: function(perId) {
+		_getTaxSection80CData: function(perId, fiscalYear) {
 			this.getModel().metadataLoaded().then(function() {
 				var that = this;
 				var oUrl = "/TAX_80CSet";
-				var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
+				//var oJsonGlobalData = this.getOwnerComponent().getModel("globalData").getData();
 				var oPernerFilter = new Filter("EmpNo", sap.ui.model.FilterOperator.EQ, perId);
-				var oFiscalYearFilter = new Filter("Fiscal", sap.ui.model.FilterOperator.EQ, oJsonGlobalData.selectedYear);
+				var oFiscalYearFilter = new Filter("Fiscal", sap.ui.model.FilterOperator.EQ, fiscalYear);
 				this.getModel().read(oUrl, {
 					filters: [oPernerFilter, oFiscalYearFilter],
 					success: function(response) {
 						var data = response.results;
 						var oSection80CModel = that.getOwnerComponent().getModel("sec80c");
 						oSection80CModel.setData(data);
+						/*var oViewModel = that.getModel("detailView");
+						oViewModel.setProperty("/busy", false);*/
+
 					},
 					error: function(error) {}
 				});
@@ -272,10 +312,11 @@ sap.ui.define([
 				oObject = oView.getModel().getObject(sPath),
 				sObjectId = oObject.personnelNo,
 				sObjectName = oObject.name,
+				sObjectFiscalYear = oObject.fiscalYear,
 				oViewModel = this.getModel("detailView");
 
 			this.getOwnerComponent().oListSelector.selectAListItem(sPath);
-
+			this._getAllDataOfEntities(sObjectId, sObjectFiscalYear);
 			oViewModel.setProperty("/saveAsTileTitle", oResourceBundle.getText("shareSaveTileAppTitle", [sObjectName]));
 			oViewModel.setProperty("/shareOnJamTitle", sObjectName);
 			oViewModel.setProperty("/shareSendEmailSubject",
@@ -336,7 +377,7 @@ sap.ui.define([
 					title: "Confirm",
 					content: [
 						new Label({
-							text: "Do you want to submit this order?",
+							text: "Do you want to submit this Tax details?",
 							labelFor: "submissionNote"
 						}),
 						new TextArea("submissionNote", {
@@ -407,7 +448,41 @@ sap.ui.define([
 
 			this.oRejectDialog.open();
 		},
+		getMasterList:function(perId,fiscalYear){
+			this.getModel().metadataLoaded().then(function() {
+				var that = this;
+				var oUrl = "/TaxHeaderSet";
+				var oPernerFilter = new Filter("personnelNo", sap.ui.model.FilterOperator.EQ, perId);
+				this.getModel().read(oUrl, {
+					filters: [oPernerFilter],
+					success: function(response) {
+						var data = response.results;
+						if (data.length > 0) {
+							var firstList = data[0];
+							var sObjectId = firstList.personnelNo;
+							that.getRouter().navTo("object", {
+								objectId: sObjectId
+							}, true);
+						} else {
+							that.getRouter().getTargets().display("detailNoObjectsAvailable");
+						}
 
+					},
+					error: function(error) {}
+				});
+
+			}.bind(this));
+		},
+		getFirstListItem: function() {
+			var aItems = this.getOwnerComponent().oListSelector._oList.getItems();
+
+			for (var i = 0; i < aItems.length; i++) {
+				if (!(aItems[i] instanceof GroupHeaderListItem)) {
+					return aItems[i];
+				}
+			}
+			return null;
+		},
 		onSubmitApproveReject: function(oEvent, sText, flagX) {
 			var that = this;
 			this.getModel().metadataLoaded().then(function() {
@@ -424,7 +499,19 @@ sap.ui.define([
 				this.getModel().create(oUrl, postData, {
 					success: function(response) {
 						//MessageBox.information("The response is saved");
-						that.getOwnerComponent().oListSelector;
+						
+						that.getMasterList(oJsonGlobalData.selectedPernr,oJsonGlobalData.selectedYear);
+						/*var oList = that.getOwnerComponent().oListSelector._oList;
+						if (oList.getMode() !== "None") {
+							var firstList = that.getFirstListItem();
+							var sObjectId = firstList.getBindingContext().getProperty("personnelNo");
+							that.getRouter().navTo("object", {
+								objectId: sObjectId
+							}, true);
+						} else {
+							that.getRouter().getTargets().display("detailNoObjectsAvailable");
+						}*/
+
 						MessageToast.show("The response is saved");
 					},
 					error: function(error) {

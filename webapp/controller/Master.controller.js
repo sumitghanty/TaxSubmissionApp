@@ -58,25 +58,7 @@ sap.ui.define([
 			this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
 			this.getRouter().attachBypassed(this.onBypassed, this);
 		},
-		_onReadYearSet: function(userId) {
-			var that = this;
-			var oModel = this.getOwnerComponent().getModel();
-			var oUrl = "/YEARSet";
-			var oPernerFilter = new sap.ui.model.Filter("Pernr", sap.ui.model.FilterOperator.EQ, userId);
-			oModel.read(oUrl, {
-				filters: [oPernerFilter],
-				success: function(response) {
-					var data = response.results;
-					var oJsonYearSetModel = that.getOwnerComponent().getModel("yearSet");
-					oJsonYearSetModel.setData(data);
-					that.onDefaultYearSelect(data[0].Fiscal);
-				},
-				error: function(error) {}
-			});
-			oModel.attachRequestCompleted(function() {
-
-			}.bind(this));
-		},
+		
 		getUserIdFromLoggedInUser: function() {
 			var oUser = new sap.ushell.services.UserInfo();
 			var userId = "";
@@ -87,15 +69,15 @@ sap.ui.define([
 			}
 
 			this.onGlobalUserIdSet(userId);
-			this._onReadYearSet(userId);
+		
 			/*sap.ushell.Container.getServiceAsync("UserInfo").then(function(UserInfo) {
 				//var userId = UserInfo.getId();
 				var userId = "1000";
 				that.onGlobalUserIdSet(userId);
 				that._onReadYearSet();
 			});*/
-
 		},
+	
 		onGlobalUserIdSet: function(oUserId) {
 			var oJsonGlobalModel = this.getOwnerComponent().getModel("globalData");
 			var oJsonGlobalData = oJsonGlobalModel.getData();
@@ -103,13 +85,7 @@ sap.ui.define([
 			oJsonGlobalData.userId = oUserId;
 			oJsonGlobalModel.setData(oJsonGlobalData);
 		},
-		onDefaultYearSelect: function(oData) {
-			var oJsonGlobalModel = this.getOwnerComponent().getModel("globalData");
-			var oJsonGlobalData = oJsonGlobalModel.getData();
-			oJsonGlobalData.selectedYear = oJsonGlobalData.selectedYear === undefined ? "" : oJsonGlobalData.selectedYear;
-			oJsonGlobalData.selectedYear = oData;
-			oJsonGlobalModel.setData(oJsonGlobalData);
-		},
+		
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
@@ -226,6 +202,13 @@ sap.ui.define([
 		/* =========================================================== */
 
 		_createViewModel: function() {
+			var oUser = new sap.ushell.services.UserInfo();
+			var userId = "";
+			if (oUser.getUser().getId() === "DEFAULT_USER") {
+				userId = "7043";
+			} else {
+				userId = oUser.getUser().getId();
+			}
 			return new JSONModel({
 				isFilterBarVisible: false,
 				filterBarLabel: "",
@@ -233,7 +216,8 @@ sap.ui.define([
 				title: this.getResourceBundle().getText("masterTitleCount", [0]),
 				noDataText: this.getResourceBundle().getText("masterListNoDataText"),
 				sortBy: "name",
-				groupBy: "None"
+				groupBy: "None",
+				userId:userId
 			});
 		},
 

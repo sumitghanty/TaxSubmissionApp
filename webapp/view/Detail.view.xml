@@ -3,7 +3,11 @@
 	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
 		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
-			<ObjectHeader id="objectHeader" title="{name}" number="{personnelNo}"></ObjectHeader>
+			<ObjectHeader id="objectHeader" title="{name}" number="{personnelNo}">
+					<ObjectAttribute text="{designation}" />
+			</ObjectHeader>
+			
+			
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 				<items>
 					<IconTabFilter text="Section 80C" key="info">

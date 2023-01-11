@@ -32,7 +32,7 @@
 						<ObjectIdentifier title="{sec80c>Itext}"/>
 						<Text text="{sec80c>PcnAmount}"/>
 						<Text text="{sec80c>AcnAmount}"/>
-						<Button icon="sap-icon://download" text="Download" press="downloadSupportingDoc" type="Accept"></Button>
+						<Button icon="sap-icon://attachment-text-file" press="downloadSupportingDoc" type="Accept"></Button>
 					</cells>
 				</ColumnListItem>
 			</items>

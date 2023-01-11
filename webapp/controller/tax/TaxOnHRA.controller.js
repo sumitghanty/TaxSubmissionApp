@@ -16,7 +16,7 @@ sap.ui.define([
 			//	oRouter.getRoute("employee").attachMatched(this._onRouteMatched, this);
 			//this._onReadHRADataSet();
 			this._initialDisplay();
-			this._getAccomodationType();
+			//this._getAccomodationType();
 			this.getOwnerComponent().getEventBus().subscribe("Default", "getHRAData", () => {
 				this._onReadHRADataSet();
 			});

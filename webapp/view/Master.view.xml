@@ -13,7 +13,7 @@
 			<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>
 			<!-- For client side filtering add this to the items attribute: parameters: {operationMode: 'Client'}}" -->
 			<List id="list"
-				items="{ path: '/TaxHeaderSet', sorter: { path: 'name', descending: false }, filters : [{ path : 'personnelNo',operator :'EQ', value1: '{globalData>userId}' },{ path : 'fiscalYear',operator :'EQ', value1: '{globalData>selectedYear}' } ], groupHeaderFactory: '.createGroupHeader' }"
+				items="{ path: '/TaxHeaderSet', sorter: { path: 'name', descending: false }, filters : [{ path : 'personnelNo',operator :'EQ', value1: '{masterView>/userId}' }], groupHeaderFactory: '.createGroupHeader' }"
 				busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}"
 				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingScrollToLoad="true"
 				updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
